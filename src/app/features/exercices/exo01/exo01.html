@@ -1,0 +1,17 @@
+<h1>On recommence Angular Exo01</h1>
+
+<p>nom : {{ nom }}</p>
+<p>prenom: {{ prenom }}</p>
+<p>age : {{ age }}</p>
+
+<div>
+  <img [src]="imgUrl" [alt]="altIMG" [width]="tailleIMG">
+</div>
+
+<div>
+  <p>{{compteur}}</p>
+  <button [disabled]="!estActif" (click)="incrementer()" (contextmenu)="decrementer()">PUSH</button>
+  <!--<button (click)="incrementer()" (contextmenu)="decrementer()">PUSH</button>-->
+  <button (click)="toggleIsActif()">Bloquer/Débloquer</button>
+</div>
+

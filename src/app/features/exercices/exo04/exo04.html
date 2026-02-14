@@ -1,0 +1,11 @@
+<h1>Exo04 : Les directives</h1>
+
+@for (item of tasks ; track item.id) {
+  <div [style.color]="item.priority === 'Haute' ? 'red' : 'black'">
+  {{item.title}} - {{item.priority}}
+    <button (click)="deleteTask(item.id)">Supprimer</button>
+    <button (click)="addTask()">Ajouter</button>
+  </div>
+} @empty {
+  <p>Toutes les taches sont finies</p>
+}

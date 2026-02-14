@@ -1,0 +1,18 @@
+<h1>Exo 05 - Com parent enfant</h1>
+
+
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2 class="text-center mb-4">Ma Liste de Tâches</h2>
+      <div class="list-group shadow-sm">
+        @for (t of tasks; track t.id) {
+          {{ t.title }} - {{ t.priority }}
+          <app-taskitem [task]="t" (askDelete)="deleteTask($event)"></app-taskitem>
+        } @empty {
+          <p>plus de taches !</p>
+        }
+      </div>
+    </div>
+  </div>
+</div>
