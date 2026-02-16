@@ -5,10 +5,20 @@
 <h2>Ma bibliotheque</h2>
 <p>Nombre de livres : {{ allBooks.length }}</p>
 
+<div class="mb-3">
+  <input
+    type="text"
+  class="form-control"
+  placeholder="Recherche par titre ou auteur..."
+  (input)="onSearch($event)">
+</div>
+
+<p>Livres trouvés : {{filteredBooks.length}}</p>
+
 <ul>
-  @for (b of allBooks; track b.title){
+  @for (b of filteredBooks; track b.title){
     <li>{{b.title}} - {{b.author}}
-      <button type="button" (click)="onDeleteBook($index)">Supprimer</button>
+      <button type="button" (click)="onDeleteBook($index)" class="btn btn-danger">Supprimer</button>
     @if (b.tags && b.tags.length > 0){
       <div style="margin-left: 20px">
         <small>Tags : </small>
@@ -19,7 +29,8 @@
         }
       </div>
     }
-
     </li>
+  } @empty {
+    <p class="text-muted">Aucun livre ne correspond à votre recherche</p>
   }
 </ul>
