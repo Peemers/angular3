@@ -8,5 +8,4 @@ import {Component, EventEmitter, Input, input, output} from '@angular/core';
 })
 export class Enfant {
   @Input() message!: string;
-
 }

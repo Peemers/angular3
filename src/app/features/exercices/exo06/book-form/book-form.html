@@ -1,0 +1,23 @@
+<form [formGroup]="bookForm" (ngSubmit)="submit()">
+  <div class="mb-3">
+    <label for="title" class="form-label"> Titre du livre : </label>
+    <input formControlName="title" placeholder="Titre du livre" id="title" class="form-control">
+    <label for="author" class="form-label"> Auteur du livre : </label>
+    <input formControlName="author" placeholder="Auteur" id="author" class="form-control">
+  </div>
+
+  <div formArrayName="tags">
+    <h3>Mots-clés</h3>
+    @for (tag of tags.controls; track $index) {
+      <div class="mb-3">
+        <label for="inputTag" class="form-label">Ajout de mot-clé : </label>
+        <input [formControlName]="$index" placeholder="Tag {{$index + 1}}" id="inputTag">
+      </div>
+    }
+  </div>
+
+  <button type="button" (click)="addTag()" class="btn-secondary btn-lg"> Ajouter un mot clé</button>
+  <button type="submit" [disabled]="bookForm.invalid" class="btn-secondary btn-lg">Enregistrer</button>
+</form>
+
+

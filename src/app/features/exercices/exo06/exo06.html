@@ -1,0 +1,25 @@
+<app-book-form (bookAdded)="onAddBook($event)"></app-book-form>
+
+<hr>
+
+<h2>Ma bibliotheque</h2>
+<p>Nombre de livres : {{ allBooks.length }}</p>
+
+<ul>
+  @for (b of allBooks; track b.title){
+    <li>{{b.title}} - {{b.author}}
+      <button type="button" (click)="onDeleteBook($index)">Supprimer</button>
+    @if (b.tags && b.tags.length > 0){
+      <div style="margin-left: 20px">
+        <small>Tags : </small>
+        @for (t of b.tags; track $index){
+          <span style="background-color: #e0e0e0 ; padding: 2px 5px">
+            #{{t}}
+          </span>
+        }
+      </div>
+    }
+
+    </li>
+  }
+</ul>
